@@ -1,0 +1,34 @@
+#docker-compose.yaml
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_container
+    environment:
+      MYSQL_DATABASE: DockerMySqlExample
+      MYSQL_HOST: localhost
+      MYSQL_ROOT_PASSWORD: N0Pa55wrd
+    ports:
+      - "50006:3306"
+    volumes:
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    restart: always
+
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fastapi_service
+    environment:
+      MYSQL_DATABASE: DockerMySqlExample
+      MYSQL_HOST: mysql
+      MYSQL_TCP_PORT: 3306
+      INSTALLER_PWD: N0Pa55wrd
+      INSTALLER_USERID: installer
+      MYSQL_ROOT_PASSWORD: N0Pa55wrd
+    ports:
+      - "8001:8001"
+    depends_on:
+      - mysql
+
+

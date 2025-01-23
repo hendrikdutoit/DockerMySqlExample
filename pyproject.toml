@@ -3,17 +3,20 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [project]
-name = 'PythonTemplateIt'
+name = 'DockerMySqlExample'
 version = '0.0.2'
 description = 'Template for new Python projects.'
 
 authors = [
     { name = "Hendrik du Toit", email = "hendrik@brightedge.co.za" }
 ]
+maintainers = [
+    { name = "Hendrik du Toit", email = "hendrikdt@citiqprepaid.co.za" },
+]
 license = "MIT"
 readme = "README.rst"
 classifiers = [
-    "Development Status :: 4 - Beta",
+    'Development Status :: 3 - Alpha',
     "Intended Audience :: Developers",
     "Intended Audience :: Information Technology",
     "Intended Audience :: System Administrators",
@@ -25,14 +28,14 @@ classifiers = [
     'Programming Language :: Python :: 3.12'
 ]
 # documentation = "https://readthedocs.org"
-dependencies = []
+dependencies = ["pymysql (>=1.1.1,<2.0.0)", "fastapi (>=0.115.6,<0.116.0)", "uvicorn (>=0.34.0,<0.35.0)"]
 requires-python = ">=3.10"
 
 [project.urls]
-issues = "https://github.com/BrightEdgeeServices/PythonTemplateIt/issues"
-changelog = 'https://github.com/BrightEdgeeServices/PythonTemplateIt/blob/enhancement/master/ReleaseNotes.md'
-homepage = 'https://github.com/BrightEdgeeServices/PythonTemplateIt'
-repository = "https://github.com/BrightEdgeeServices/PythonTemplateIt.git"
+issues = "https://github.com/hendrikdutoit/DockerMySqlExample/issues"
+changelog = 'https://github.com/hendrikdutoit/DockerMySqlExample/blob/enhancement/master/ReleaseNotes.md'
+homepage = 'https://github.com/hendrikdutoit/DockerMySqlExample'
+repository = "https://github.com/hendrikdutoit/DockerMySqlExample.git"
 
 [tool.black]
 line-length = 120
@@ -63,16 +66,18 @@ profile = "black"
 optional = true
 
 [tool.poetry.group.dev.dependencies]
-mdformat-gfm = "^0.4.1"
-mdformat-frontmatter = "^2.0.8"
-mdformat-footnote = "^0.1.1"
-black = "^24.10.0"
-flake8 = "^7.1.1"
-pre-commit = "^4.0.1"
-pytest = "^8.3.4"
-codecov = "^2.1.13"
-pytest-cov = "^6.0.0"
-rstcheck = "^6.2.4"
+black = ">=24.10.0"
+codecov = ">=2.1.13"
+flake8 = ">=7.1.1"
+mdformat-frontmatter = ">=2.0.8"
+mdformat-footnote = ">=0.1.1"
+mdformat-gfm = ">=0.4.1"
+pre-commit = ">=4.0.1"
+pytest = ">=8.3.4"
+pytest-cov = ">=6.0.0"
+rstcheck = { extras = ["sphinx"], version = ">=6.2.4" }
+sphinx = ">=8.1.3"
+twine = ">=6.0.1"
 
 [tool.pytest.ini_options]
 addopts = [
@@ -80,9 +85,6 @@ addopts = [
     '--ignore-glob=*\\Archive',
 ]
 #addopts = ['--import-mode=importlib', "-v", "--cov=./", "--ignore-glob=*\\Archive", "--cov-report=html"]
-markers = [
-    "select: Run a selection of tests",
-]
 filterwarnings = [
     "ignore::DeprecationWarning",
 ]
@@ -91,3 +93,7 @@ pythonpath = [
     'tests',
 ]
 testpaths = 'tests'
+markers = [
+    "select: Run a selection of tests",
+    "integration: Test integration",
+]

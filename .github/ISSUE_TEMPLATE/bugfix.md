@@ -16,7 +16,7 @@ assignees: ''
 
 ## List the source code file(s)
 
-<!-- Files and line number where you think the error is (if known) -->
+**List the source code file(s) and line number where you think the error is (if known)**
 
 ## Minimal Complete Verifiable Example
 
@@ -38,6 +38,8 @@ assignees: ''
 <!--Will be provided by owner -->
 
 ## Checks
+
+Only once all the checks below are completed should there be a new release:
 
 - [ ] Remove warnings, errors and spelling reported by IDE.
 - [ ] Update / remove ToDo's

@@ -1,0 +1,15 @@
+# docker-compose.yaml
+version: "3.9"
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+    # If you needed file-watching or hot-reloading, you’d handle it differently
+    # e.g. volumes:
+    #   - .:/code
+
+  # If you need Redis in the same compose file:
+  redis:
+    image: "redis:alpine"
