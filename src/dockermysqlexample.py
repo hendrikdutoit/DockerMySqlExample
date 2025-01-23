@@ -8,15 +8,15 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    userid = os.getenv("INSTALLER_USERID", "root")
-    pwd = os.getenv("MYSQL_ROOT_PASSWORD", "N0Pa55wrd")
+    userid = "root"
+    pwd = "N0Pa55wrd"
     try:
         connection = pymysql.connect(
             host=os.getenv("MYSQL_HOST", "localhost"),
             # user=os.getenv("INSTALLER_USERID", "root"),
             # password=os.getenv("MYSQL_ROOT_PASSWORD", "N0Pa55wrd"),
-            user="root",
-            password="N0Pa55wrd",
+            user=userid,
+            password=pwd,
             database=os.getenv("MYSQL_DATABASE", "DockerMySqlExample"),
             port=int(os.getenv("MYSQL_TCP_PORT", 3306)),
         )
