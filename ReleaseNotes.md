@@ -9,6 +9,6 @@ Release 0.0.2
 - Update pyproject.toml.
 - Spelling corrections.
 - Add scripts\\init.dql script
-- Fixe'd up the pytests
+- Fixed up the pytest's
 - Updated .gitignore, pre-commit-config.yaml
 - Add Docker configuration files
