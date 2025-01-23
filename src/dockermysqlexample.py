@@ -8,6 +8,8 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
+    userid = os.getenv("INSTALLER_USERID", "root")
+    pwd = os.getenv("MYSQL_ROOT_PASSWORD", "N0Pa55wrd")
     try:
         connection = pymysql.connect(
             host=os.getenv("MYSQL_HOST", "localhost"),
@@ -22,4 +24,5 @@ def read_root():
         connection.close()
         return {"databases": databases}
     except Exception as e:
-        return {"error": str(e)}
+        s = f"str({e}) userid:{userid} password:{pwd}"
+        return {"error": s}
