@@ -11,8 +11,8 @@ def read_root():
     try:
         connection = pymysql.connect(
             host=os.getenv("MYSQL_HOST", "localhost"),
-            user=os.getenv("INSTALLER_USERID", "installer"),
-            password=os.getenv("INSTALLER_PWD", "N0Pa55wrd"),
+            user=os.getenv("INSTALLER_USERID", "root"),
+            password=os.getenv("MYSQL_ROOT_PASSWORD", "N0Pa55wrd"),
             database=os.getenv("MYSQL_DATABASE", "DockerMySqlExample"),
             port=int(os.getenv("MYSQL_TCP_PORT", 3306)),
         )
