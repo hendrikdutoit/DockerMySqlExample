@@ -1,0 +1,6 @@
+CREATE DATABASE IF NOT EXISTS DockerMySqlExample;
+
+CREATE USER IF NOT EXISTS 'installer'@'%' IDENTIFIED BY 'N0Pa55wrd';
+GRANT ALL PRIVILEGES ON DockerMySqlExample.* TO 'installer'@'%';
+
+FLUSH PRIVILEGES;

@@ -78,12 +78,10 @@ jobs:
 
       - name: Build and publish with Poetry
         run: |
-          # Build the source and wheel distributions
           poetry build
-          # Publish to PyPI using the API token stored in GitHub Secrets
           poetry publish \
             --username __token__ \
-            --password "${{ secrets.PYPI_API_TOKEN_231021 }}"
+            --password "${{ secrets.PYPI_API_TOKEN_PROD }}"
 
       - name: New release
         uses: softprops/action-gh-release@v2

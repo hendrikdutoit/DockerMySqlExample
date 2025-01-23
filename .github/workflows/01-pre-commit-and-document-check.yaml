@@ -30,9 +30,6 @@ jobs:
       - name: Run pre-commit checks
         uses: pre-commit/action@v3.0.1
 
-      - name: Debug Environment
-        run: env
-
   Document-Check:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -59,11 +56,11 @@ jobs:
       - name: Run pre-commit checks
         uses: pre-commit/action@v3.0.1
 
-      - name: Check rst documents
-        run: rstcheck README.rst
+# This is already included in Pre-Commit
+#      - name: Check documents
+#        run: rstcheck README.rst
 
-      - name: Check md documents
-        run: mdformat .
+# This is already included in Pre-Commit
+#      - name: Check md documents
+#        run: mdformat .
 
-      - name: Debug Environment
-        run: env
