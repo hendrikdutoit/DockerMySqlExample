@@ -25,6 +25,7 @@ services:
       MYSQL_TCP_PORT: 3306
       INSTALLER_PWD: N0Pa55wrd
       INSTALLER_USERID: installer
+      MYSQL_ROOT_PASSWORD: N0Pa55wrd
     ports:
       - "8001:8001"
     depends_on:
