@@ -9,7 +9,7 @@ jobs:
     env:
       GH_APP_ACCESS_TOKEN_HDT: ${{ secrets.GH_APP_ACCESS_TOKEN_HDT }}
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      MYSQL_ROOT_PASSWORD: ${{ N0Pa55wrd }}
+      MYSQL_ROOT_PASSWORD: ${{ secrets.N0Pa55wrd }}
 
     strategy:
       fail-fast: true
