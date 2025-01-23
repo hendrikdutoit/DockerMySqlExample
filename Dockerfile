@@ -3,6 +3,7 @@ FROM python:3.10-slim
 WORKDIR /app
 RUN pip install --no-cache-dir poetry
 COPY ./src /app
+COPY ./scripts /app/scripts
 COPY pyproject.toml poetry.lock README.rst /app/
 RUN poetry config virtualenvs.create false
 RUN poetry install
