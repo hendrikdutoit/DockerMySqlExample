@@ -1,5 +1,14 @@
-# Release 0.0.1
+Release 0.0.2
 
-## General Changes
+# Upgrade Configuration and Restructuring
 
-- Initial setup and configuration.
+- Update ISSUE_TEMPLATE's.
+- Update Workflow.
+- Update the pre-commit hooks
+- Fix the Workflows
+- Update pyproject.toml.
+- Spelling corrections.
+- Add scripts\\init.dql script
+- Fixed up the pytest's
+- Updated .gitignore, pre-commit-config.yaml
+- Add Docker configuration files
