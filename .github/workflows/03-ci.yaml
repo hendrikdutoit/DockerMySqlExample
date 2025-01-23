@@ -43,10 +43,17 @@ jobs:
         run: |
           poetry install --with dev
 
+        # 4. Build and start containers in the background
+        #    The `--build` flag ensures containers are built fresh
+        #    for each run
+      - name: Build and start containers
+        run: docker-compose up -d --build
+
       - name: Run pytest with coverage
         run: |
           echo "PythonPath=$PYTHONPATH"
-          poetry run pytest --cov=./ --cov-report=xml
+          poetry run pytest tests/ --maxfail=1 --cov=./ --cov-report=xml
+
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
@@ -55,3 +62,14 @@ jobs:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: hendrikdutoit/DockerMySqlExample
+
+
+      # 5. Run tests
+      #    Your test_integration.py should handle waiting for the
+      #    service to become ready
+      #      - name: Run tests
+      #        run: pytest tests/ --maxfail=1 --disable-warnings
+
+      # 6. Shut down and clean up containers
+      - name: Shutdown
+        run: docker-compose down
