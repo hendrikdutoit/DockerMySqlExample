@@ -65,7 +65,6 @@ jobs:
           echo "PythonPath=$PYTHONPATH"
           poetry run pytest --cov=./ --cov-report=xml --maxfail=1 tests/
 
-
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
