@@ -14,6 +14,7 @@ jobs:
       MYSQL_DATABASE: ${{secrets.MYSQL_DATABASE}}
       MYSQL_HOST: ${{secrets.MYSQL_HOST}}
       MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+      MYSQL_TCP_PORT: ${{ secrets.MYSQL_TCP_PORT }}
       MYSQL_USER_ID: ${{secrets.INSTALLER_USER_ID}}
       MYSQL_USER_PWD: ${{secrets.INSTALLER_USER_PWD}}
 
