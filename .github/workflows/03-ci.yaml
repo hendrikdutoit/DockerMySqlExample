@@ -9,6 +9,8 @@ jobs:
     env:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       GH_APP_ACCESS_TOKEN_HDT: ${{ secrets.GH_APP_ACCESS_TOKEN_HDT }}
+      INSTALLER_USER_ID: ${{secrets.INSTALLER_USER_ID}}
+      INSTALLER_USER_PWD: ${{secrets.INSTALLER_USER_PWD}}
       MYSQL_DATABASE: ${{secrets.MYSQL_DATABASE}}
       MYSQL_HOST: ${{secrets.MYSQL_HOST}}
       MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
