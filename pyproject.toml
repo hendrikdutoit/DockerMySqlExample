@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [project]
 name = 'DockerMySqlExample'
-version = '0.0.2'
+version = '0.0.3'
 description = 'Template for new Python projects.'
 
 authors = [

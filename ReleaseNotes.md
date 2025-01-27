@@ -1,4 +1,19 @@
-Release 0.0.2
+Release 0.0.3
+
+# Upgrade Configuration and Restructuring
+
+- Add the following environment variables as secrets for Docker configuration:
+
+  - INSTALLER_USER_ID
+  - INSTALLER_USER_PWD
+  - MYSQL_DATABASE
+  - MYSQL_HOST
+  - MYSQL_ROOT_PASSWORD
+  - MYSQL_TCP_PORT
+  - MYSQL_USER_ID
+  - MYSQL_USER_PWD
+
+- Release 0.0.2
 
 # Upgrade Configuration and Restructuring
 
