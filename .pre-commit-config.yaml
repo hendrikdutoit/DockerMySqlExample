@@ -20,7 +20,7 @@ repos:
         args: [ --markdown-linebreak-ext=md ]
 
   - repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.21  # Use the ref you want to point at
+    rev: 0.7.22  # Use the ref you want to point at
     hooks:
       - id: mdformat
         args: [ --end-of-line, crlf, ReleaseNotes.md ]
@@ -43,14 +43,14 @@ repos:
         args: [ --py311-plus ]
 
   - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
+    rev: 6.0.1
     hooks:
       - id: isort
         args: [ "--profile", "black", "--filter-files", "--force-single-line-imports",
                 "--force-alphabetical-sort-within-sections", "--py", "auto" ]
 
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.0
+    rev: v2.4.1
     hooks:
       - id: codespell
         args: [ --write, --toml, pyproject.toml ]
@@ -58,13 +58,13 @@ repos:
           - tomli
 
   - repo: https://github.com/psf/black
-    rev: 24.10.0
+    rev: 25.1.0
     hooks:
       - id: black
         language_version: python3
 
   - repo: https://github.com/pycqa/flake8
-    rev: 7.1.1
+    rev: 7.1.2
     hooks:
       - id: flake8
         language_version: python3
