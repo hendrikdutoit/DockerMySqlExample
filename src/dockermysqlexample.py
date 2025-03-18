@@ -8,8 +8,8 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    userid = "root"
-    pwd = "N0Pa55wrd"
+    userid = os.getenv("MYSQL_USER", "root")
+    pwd = os.getenv("MYSQL_PASSWORD", "N0Pa55wrd")
     try:
         connection = pymysql.connect(
             host=os.getenv("MYSQL_HOST", "localhost"),

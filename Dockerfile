@@ -1,11 +1,11 @@
-# Dockerfile
-FROM python:3.10-slim
+# Docker
+FROM python:3.13-slim-bullseye
 WORKDIR /app
 RUN pip install --no-cache-dir poetry
 COPY ./src /app
 COPY ./scripts /app/scripts
-COPY pyproject.toml poetry.lock README.rst /app/
+COPY pyproject.toml poetry.lock README.md /app/
 RUN poetry config virtualenvs.create false
 RUN poetry install
-EXPOSE 8001
+EXPOSE 5000
 CMD ["uvicorn", "dockermysqlexample:app", "--host", "0.0.0.0", "--port", "8001", "--reload"]
