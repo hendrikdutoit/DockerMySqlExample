@@ -37,8 +37,8 @@ def test_root_endpoint():
     url = "http://localhost:8001/"
 
     # Wait for the service to be up and responding
-    service_up = wait_for_service(url, timeout=30)
-    assert service_up, "FastAPI service did not become available within 30 seconds."
+    service_up = wait_for_service(url, timeout=10)
+    assert service_up, "FastAPI service did not become available within 10 seconds."
 
     # Perform the actual request
     response = requests.get(url)

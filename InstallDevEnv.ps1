@@ -9,7 +9,8 @@ poetry init
 if (Test-Path -Path "$env:PROJECT_DIR\SetupGitHubAccess.ps1") {
     & "$env:PROJECT_DIR\SetupGitHubAccess"
 
-} else {
+}
+else {
     Write-Host "No $env:PROJECT_DIR\SetupGitHubAccess.ps1 file"
 }
 if (Test-Path -Path "$env:PROJECT_DIR\SetupPrivateRepoAccess.ps1") {
@@ -22,8 +23,8 @@ if (Test-Path -Path "$env:PROJECT_DIR\pyproject.toml") {
 }
 pre-commit install
 pre-commit autoupdate
-if (Test-Path -Path "$env:PROJECT_DIR\DockerRebuild.ps1") {
-    & "$env:PROJECT_DIR\DockerRebuild.ps1"
+if (Test-Path -Path "$env:PROJECT_DIR\SetUpDocker.ps1") {
+    & "$env:PROJECT_DIR\SetUpDocker.ps1"
 }
 Write-Host '-[ END InstallDevEnv.ps1 ]------------------------------------------------------' -ForegroundColor Cyan
 Write-Host ''

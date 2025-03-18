@@ -3,33 +3,35 @@
 services:
   db:
     container_name: "${PROJECT_NAME}_Db"
-    image: mysql:8.3.0
-    command: mysqld --default-authentication-plugin=mysql_native_password
+    image:          mysql:8.3.0
+    command:        mysqld --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_DATABASE:      ${MYSQL_DATABASE}
+      MYSQL_HOST:          ${MYSQL_HOST}
+      MYSQL_PASSWORD:      ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_USER_ID: ${INSTALLER_USER_ID}
-      MYSQL_USER_PWD: ${INSTALLER_USER_PWD}
+      MYSQL_USER:          ${MYSQL_USER}
     ports:
       - "${MYSQL_TCP_PORT}:3306"
     volumes:
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-    restart: always
+    restart:        always
 
   fastapi:
     build:
-      context: .
+      context:    .
       dockerfile: Dockerfile
     container_name: fastapi_service
     environment:
-      INSTALLER_USER_ID: ${INSTALLER_USER_ID}
-      INSTALLER_USER_PWD: ${INSTALLER_USER_PWD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_HOST: mysql
+      INSTALLER_USER_ID:   ${INSTALLER_USER_ID}
+      INSTALLER_USER_PWD:  ${INSTALLER_USER_PWD}
+      MYSQL_DATABASE:      ${MYSQL_DATABASE}
+      MYSQL_HOST:          db
+      MYSQL_PASSWORD:      ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_TCP_PORT: 3306
+      MYSQL_TCP_PORT:      3306
+      MYSQL_USER:          ${MYSQL_USER}
     ports:
-      - "8001:5001"
+      - "8001:8001"
     depends_on:
-      - mysql
+      - db

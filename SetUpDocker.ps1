@@ -53,8 +53,7 @@ if (-not $Pester) {
             docker compose -f $DockerConfigFileName rm --force
             docker volume prune -a  --force
             docker builder prune --force
-            docker compose -p $DockerName -f $DockerConfigFileName create
-            docker compose -p $DockerName -f $DockerConfigFileName start
+            docker compose -p $DockerName -f $DockerConfigFileName up --build -d
         }
         else {
             Write-Host "The $DockerConfigFileName does not exist!" -ForegroundColor Red
